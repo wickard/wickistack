@@ -49,3 +49,13 @@ const User = db.define('user', {
 module.exports = {
   Page, User, db
 }
+
+const genearateUrlTitle = (title) => {
+  if (title){
+    const nonAlpha = /[^a-zA-Z\d\s:]/g
+    const spaces = /\s+/g
+    return title.replace(nonAlpha, '').replace(spaces, '_')
+  }
+  return Math.random().toString(36).substring(2, 7)
+}
+
